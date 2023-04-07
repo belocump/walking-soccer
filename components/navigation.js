@@ -6,6 +6,9 @@ import {
   SiTinyletter,
 } from "react-icons/si";
 
+import { GiTurtle } from "react-icons/gi";
+import { BiHomeAlt2 } from "react-icons/bi";
+
 export default function Navigation() {
   return (
     <nav className="md:ml-auto md:justify-end justify-center text-base flex container">
@@ -13,8 +16,8 @@ export default function Navigation() {
         <p className="text-1xl font-fancy1 text-gray-900 mr-5 mb-4 hover:text-blue-400 duration-300">
           Home
         </p>
-        <div className="flex justify-center">
-          <SiGooglehome />
+        <div className="flex justify-center  hover:text-blue-400 duration-300">
+          <BiHomeAlt2 size="3rem" />
         </div>
       </Link>
 
@@ -22,8 +25,8 @@ export default function Navigation() {
         <p className="text-1xl font-fancy1 text-gray-900 mr-5 mb-4 hover:text-blue-400 duration-300">
           About
         </p>
-        <div className="flex justify-center">
-          <SiReddit />
+        <div className="flex justify-center hover:text-blue-400 duration-300">
+          <GiTurtle size="3rem" />
         </div>
       </Link>
 
@@ -31,8 +34,8 @@ export default function Navigation() {
         <p className="text-1xl font-fancy1 text-gray-900 mr-5 mb-4 hover:text-blue-400 duration-300">
           Blog
         </p>
-        <div className="flex justify-center">
-          <SiBookstack />
+        <div className="flex justify-center hover:text-blue-400 duration-300">
+          <SiBookstack size="3rem" />
         </div>
       </Link>
 
@@ -40,8 +43,8 @@ export default function Navigation() {
         <p className="text-1xl font-fancy1 text-gray-900 mb-4 hover:text-blue-400 duration-300">
           Contact
         </p>
-        <div className="flex justify-center">
-          <SiTinyletter />
+        <div className="flex justify-center hover:text-blue-400 duration-300">
+          <SiTinyletter size="3rem" />
         </div>
       </Link>
     </nav>

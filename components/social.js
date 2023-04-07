@@ -4,6 +4,7 @@ import {
   faFacebookF,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
+import { BsInstagram } from "react-icons/bs";
 // import styles from 'styles/social.module.css'
 
 export default function Social() {
@@ -17,9 +18,9 @@ export default function Social() {
           </a>
         </li>
         <li className="text-1xl hover:text-blue-400 duration-300">
-          <a href="https://github.com/">
-            <FontAwesomeIcon icon={faGithub} />
-            <span className="">GitHub</span>
+          <a href="https://www.instagram.com/">
+            <BsInstagram size="3rem" />
+            <span className="">Instagram</span>
           </a>
         </li>
       </ul>
