@@ -7,11 +7,12 @@ import SinglePost from "../components/Post/SinglePost";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Tag from "../components/Tag/Tag";
+import Slider from "../components/Slider";
 
 export const getStaticProps: GetStaticProps = async () => {
   // const allPosts = await getAllPosts();
   // 空だと４つの記事　数字で指定することで記事の数が変わる
-  const fourPosts = await getPostsForTopPage(3);
+  const fourPosts = await getPostsForTopPage(6);
   const allTags = await getAllTags();
 
   return {
@@ -31,30 +32,22 @@ const Home: NextPage = ({ fourPosts, allTags }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="container flex flex-col min-h-screen content-between justify-between mx-auto md:flex-row">
+      <div className="carousel">
+        <Slider />
+      </div>
+
+      <Link
+        href="/about"
+        className="mb-6 lg:w-1/2 mx-auto px-5 block text-right mt-5 my-16 text-2xl text-blue-900"
+      >
+        ...もっと詳しく
+      </Link>
+
+      <section className="container flex flex-col min-h-screen content-between justify-between mt-10 mx-auto md:flex-row">
         <div className="bg-gray-100 flex container  flex-col">
-          <div className="m-10">
-            <h1 className="font-fancy1 font-medium text-center text-4xl mt-5 mb-5">
-              About Us
-            </h1>
-
-            <p className="text-2xl mt-10">
-              小学校の教員として、１０年以上働いていました。プログラミングに興味があります。最近はPythonやフロントエンドの技術の勉強をしています。サッカーを心から愛しています。
-            </p>
-
-            <div className="flex justify-center">
-              <Link
-                href="/about"
-                className="mb-6 lg:w-1/2 mx-auto px-5 block text-right mt-5 text-2xl text-blue-900"
-              >
-                ...もっと詳しく
-              </Link>
-            </div>
-          </div>
-
           <div>
             <h1 className="font-fancy1 text-5xl font-medium text-center mb-5">
-              News
+              Events
             </h1>
             {fourPosts.map((post: any) => (
               <div className="mx-4" key={post.id}>

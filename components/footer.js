@@ -5,7 +5,7 @@ import Social from "components/social";
 
 export default function Footer() {
   return (
-    <footer className="bg-hero-img">
+    <footer className="bg-hero-img mt-5">
       <div className="container flex mx-auto p-5 flex-col items-center justify-center">
         <Social />
         <p className="font-medium my-5">© 2023 Belocump.com</p>
