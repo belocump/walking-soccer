@@ -7,7 +7,7 @@ import SinglePost from "../components/Post/SinglePost";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Tag from "../components/Tag/Tag";
-import Slider from "../components/Slider";
+import Slider from "../components/slider";
 
 export const getStaticProps: GetStaticProps = async () => {
   // const allPosts = await getAllPosts();
