@@ -8,16 +8,18 @@ function Slider() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
-    slidesToShow: 1,
+    speed: 700,
+    slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
     centerMode: true,
+    arrows: false,
   };
   return (
     <Slick {...settings}>
       <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
       <Image src="/back.png" alt="" width={1400} height={300} />
+      <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
       {/* <div className="flex">
         <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
       </div>

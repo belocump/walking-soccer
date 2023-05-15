@@ -18,7 +18,8 @@ export const getAllPosts = async () => {
         equals: true,
       },
     },
-    sorts: [{ property: "Date", direction: "descending" }],
+    sorts: [{ property: "Date", direction: "ascending" }],
+    // sorts: [{ property: "Date", direction: "descending" }],
   });
 
   const allPosts = posts.results;
@@ -65,7 +66,7 @@ export const getSinglePost = async (slug) => {
   // console.log(metadata);
   const mdBlocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdBlocks);
-  console.log(mdString);
+  // console.log(mdString);
 
   return {
     metadata,
