@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
-  SiGooglehome,
-  SiReddit,
+  // SiGooglehome,
+  // SiReddit,
   SiBookstack,
   SiTinyletter,
 } from "react-icons/si";
@@ -32,7 +32,7 @@ export default function Navigation() {
 
       <Link href="/posts/page/1">
         <p className="text-1xl font-fancy1 text-gray-900 mr-5 mb-4 hover:text-blue-400 duration-300">
-          Blog
+          Events
         </p>
         <div className="flex justify-center hover:text-blue-400 duration-300">
           <SiBookstack size="3rem" />

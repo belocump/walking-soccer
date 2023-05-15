@@ -9,7 +9,7 @@ function Slider() {
     dots: true,
     infinite: true,
     speed: 700,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     centerMode: true,
@@ -20,18 +20,6 @@ function Slider() {
       <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
       <Image src="/back.png" alt="" width={1400} height={300} />
       <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
-      {/* <div className="flex">
-        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
-      </div>
-      <div className="flex">
-        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
-      </div>
-      <div className="flex">
-        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
-      </div>
-      <div className="flex">
-        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
-      </div> */}
     </Slick>
   );
 }
