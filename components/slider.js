@@ -13,6 +13,8 @@ function Slider() {
     slidesToScroll: 1,
     autoplay: true,
     centerMode: true,
+    // Type: string,
+    centerPadding: "15px",
     arrows: false,
   };
   return (

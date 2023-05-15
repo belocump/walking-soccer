@@ -31,6 +31,9 @@ export default function Home() {
       body: JSON.stringify(data),
     }).then((res) => {
       if (res.status === 200) console.log("送信に成功しました");
+      nameRef.current.value = "";
+      emailRef.current.value = "";
+      messageRef.current.value = "";
     });
   };
 
@@ -40,6 +43,7 @@ export default function Home() {
         <title>Contact</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <div className="container m-3 h-full w-full mx-auto md:w-1/2">
         <div className="bg-yellow-50 mx-3">
           <h2 className="text-3xl font-fancy1 mx-2 mb-10 text-center">
@@ -49,7 +53,7 @@ export default function Home() {
           <form
             onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
           >
-            <div className="w-full">
+            <div className="flex flex-col items-center">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="name"
@@ -57,7 +61,7 @@ export default function Home() {
                 お名前
               </label>
               <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 mx-2 leading-tight focus:outline-none focus:bg-white"
+                className="appearance-none block w-5/6 bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 mx-2 leading-tight focus:outline-none focus:bg-white"
                 type="text"
                 id="name"
                 placeholder="（例)　山田　太郎"
@@ -66,7 +70,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="w-full">
+            <div className="flex flex-col items-center">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="email"
@@ -74,7 +78,7 @@ export default function Home() {
                 メールアドレス
               </label>
               <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 mx-2 leading-tight focus:outline-none focus:bg-white"
+                className="appearance-none block w-5/6 bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 mx-2 leading-tight focus:outline-none focus:bg-white"
                 type="email"
                 id="email"
                 placeholder="（例)　aaa@aa.com"
@@ -82,7 +86,8 @@ export default function Home() {
                 ref={emailRef}
               />
             </div>
-            <div className="w-full">
+
+            <div className="flex flex-col items-center">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="message"
@@ -90,13 +95,14 @@ export default function Home() {
                 メッセージ
               </label>
               <textarea
-                className="block mx-2 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block mx-2 p-2.5 w-5/6 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 id="message"
                 placeholder="メッセージをここに書いてください"
                 required
                 ref={messageRef}
               />
             </div>
+
             <hr />
             <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
               <button
