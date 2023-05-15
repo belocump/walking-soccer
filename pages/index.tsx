@@ -12,7 +12,7 @@ import Slider from "../components/slider";
 export const getStaticProps: GetStaticProps = async () => {
   // const allPosts = await getAllPosts();
   // 空だと４つの記事　数字で指定することで記事の数が変わる
-  const fourPosts = await getPostsForTopPage(6);
+  const fourPosts = await getPostsForTopPage(4);
   const allTags = await getAllTags();
 
   return {

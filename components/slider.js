@@ -8,7 +8,7 @@ function Slider() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -16,9 +16,20 @@ function Slider() {
   };
   return (
     <Slick {...settings}>
-      <Image src="/back.png" alt="" width={200} height={100} />
-      <Image src="/back.png" alt="" width={200} height={100} />
-      <Image src="/back.png" alt="" width={200} height={100} />
+      <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
+      <Image src="/back.png" alt="" width={1400} height={300} />
+      {/* <div className="flex">
+        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
+      </div>
+      <div className="flex">
+        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
+      </div>
+      <div className="flex">
+        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
+      </div>
+      <div className="flex">
+        <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
+      </div> */}
     </Slick>
   );
 }
