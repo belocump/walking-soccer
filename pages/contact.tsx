@@ -8,33 +8,32 @@ export default function Home() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    if (!confirm("メールを送信します。よろしいですか?")) {
-      return;
-    }
-
     e.preventDefault();
+    if (confirm("メールを送信します。よろしいですか?")) {
+      console.log("送信中・・・");
 
-    // console.log("送信中・・・");
+      let data = {
+        name: nameRef.current?.value,
+        email: emailRef.current?.value,
+        message: messageRef.current?.value,
+      };
 
-    let data = {
-      name: nameRef.current?.value,
-      email: emailRef.current?.value,
-      message: messageRef.current?.value,
-    };
-
-    await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    }).then((res) => {
-      if (res.status === 200) console.log("送信に成功しました");
-      // nameRef.current.value = "";
-      // emailRef.current.value = "";
-      // messageRef.current.value = "";
-    });
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }).then((res) => {
+        if (res.status === 200) console.log("送信に成功しました");
+        nameRef.current!.value = "";
+        emailRef.current!.value = "";
+        messageRef.current!.value = "";
+      });
+    } else {
+      console.log("送信中止");
+    }
   };
 
   return (
@@ -47,7 +46,7 @@ export default function Home() {
       <div className="container m-3 h-full w-full mx-auto md:w-1/2">
         <div className="bg-yellow-50 mx-3">
           <h2 className="text-3xl font-fancy1 mx-2 mb-10 text-center">
-            Contact to Belocump
+            Contact
           </h2>
 
           <form
@@ -100,8 +99,10 @@ export default function Home() {
                 placeholder="メッセージをここに書いてください"
                 required
                 ref={messageRef}
+                rows={8}
               />
             </div>
+            <br />
 
             <hr />
             <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
