@@ -31,9 +31,9 @@ export default function Home() {
       body: JSON.stringify(data),
     }).then((res) => {
       if (res.status === 200) console.log("送信に成功しました");
-      nameRef.current.value = "";
-      emailRef.current.value = "";
-      messageRef.current.value = "";
+      // nameRef.current.value = "";
+      // emailRef.current.value = "";
+      // messageRef.current.value = "";
     });
   };
 
