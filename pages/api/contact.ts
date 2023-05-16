@@ -7,8 +7,10 @@ export default function sendmail(req: NextApiRequest, res: NextApiResponse) {
     service: "gmail",
     port: 465,
     auth: {
-      user: process.env.GMAILUSER,
-      pass: process.env.GMAILPASSWORD,
+      user: "belocump.walking.soccer@gmail.com",
+      pass: "ebbeuulscwnlovgz",
+      // user: process.env.GMAILUSER,
+      // pass: process.env.GMAILPASSWORD,
     },
   });
 
@@ -34,5 +36,4 @@ export default function sendmail(req: NextApiRequest, res: NextApiResponse) {
   });
 
   res.send("success");
-  
 }
