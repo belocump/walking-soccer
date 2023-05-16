@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next build && next export",
+    "serve": "yarn export && serve ./out"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
@@ -14,8 +15,10 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@notionhq/client": "^2.2.3",
     "bootstrap": "^5.2.3",
+    "imagemin-svgo": "^10.0.1",
     "microcms-js-sdk": "^2.3.2",
     "next": "latest",
+    "next-optimized-images": "^2.6.2",
     "nodemailer": "^6.9.1",
     "notion-to-md": "^2.5.5",
     "react": "18.2.0",
