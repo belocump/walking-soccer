@@ -1,27 +1,44 @@
-import React from 'react'
+import React from "react";
 import Link from "next/link";
 
 type Props = {
-    title: string;
-    description: string;
-    date: string;
-    tags: string[];
-    slug: string;
-    isPaginationPage: boolean;
-  };
+  title: string;
+  description: string;
+  date: string;
+  tags: string[];
+  slug: string;
+  isPaginationPage: boolean;
+  // 追記
+  start: string;
+  end: string;
+  location: string;
+};
 
-const SinglePost = (props:Props) => {
-    const { title, description, date, tags, slug,
-        isPaginationPage
-    } = props;
+const SinglePost = (props: Props) => {
+  const {
+    title,
+    description,
+    date,
+    tags,
+    slug,
+    start,
+    end,
+    location,
+    isPaginationPage,
+  } = props;
   return (
-    
     <section className=" bg-sky-900 mb-8 mx-auto rounded-md p-5 shadow-2xl hover:shadow-none hover:translate-y-1 transition-all duration-300">
-    <div className="lg:flex items-center">
-      <h2 className="text-gray-100 text-2xl font-medium mb-2">
-        <Link href={`/posts/${slug}`}>{title}</Link>
-      </h2>
-      <div className="text-gray-400 mr-2">{date}</div>
+      <div className="lg:flex items-center">
+        <h2 className="text-gray-100 text-2xl font-medium mb-2">
+          <Link href={`/posts/${slug}`}>
+            {date}【{start}から{end}】　{title}
+          </Link>
+        </h2>
+
+        {/* <div className="text-gray-400 mr-2">
+          {start}から{end}
+        </div> */}
+      </div>
       {tags.map((tag: string, index: number) => (
         <Link href={`/posts/tag/${tag}/page/1`} key={index}>
           <span className="text-white bg-gray-500 rounded-xl px-2 font-medium mr-2">
@@ -29,10 +46,9 @@ const SinglePost = (props:Props) => {
           </span>
         </Link>
       ))}
-    </div>
-    <p className="text-gray-100">{description}</p>
-  </section>
-  )
-}
+      <p className="text-gray-100">{description}</p>
+    </section>
+  );
+};
 
-export default SinglePost
+export default SinglePost;

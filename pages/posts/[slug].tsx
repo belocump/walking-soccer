@@ -100,6 +100,10 @@ const Post = ({ post }: any) => {
           {post.markdown}
         </ReactMarkdown>
 
+        <h2 className="text-white bg-sky-50 rounded-xl font-medium mt-2 px-2 inline-block mr-2">
+          <Link href={`/event/${post.metadata.slug}/`}>ご予約はこちらから</Link>
+        </h2>
+
         <br />
         <Link href="/">
           <div className="pb-20 mt-10 text-sky-900 float-right">
