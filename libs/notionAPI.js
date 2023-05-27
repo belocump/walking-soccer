@@ -44,6 +44,10 @@ const getPageMataData = (post) => {
     tags: getTags(post.properties.Tags.multi_select),
     date: post.properties.Date.date.start,
     slug: post.properties.Slug.rich_text[0].plain_text,
+    // 追記
+    start: post.properties.Start.rich_text[0].plain_text,
+    end: post.properties.End.rich_text[0].plain_text,
+    location: post.properties.Location.rich_text[0].plain_text,
   };
 };
 

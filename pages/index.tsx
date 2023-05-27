@@ -55,6 +55,9 @@ const Home: NextPage = ({ fourPosts, allTags }: any) => {
                   title={post.title}
                   description={post.description}
                   date={post.date}
+                  start={post.start}
+                  end={post.end}
+                  location={post.location}
                   tags={post.tags}
                   slug={post.slug}
                   isPaginationPage={false}

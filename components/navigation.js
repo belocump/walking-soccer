@@ -5,8 +5,7 @@ import {
   SiBookstack,
   SiTinyletter,
 } from "react-icons/si";
-
-import { GiTurtle } from "react-icons/gi";
+import { MdOutlineSportsSoccer } from "react-icons/md";
 import { BiHomeAlt2 } from "react-icons/bi";
 
 export default function Navigation() {
@@ -26,7 +25,7 @@ export default function Navigation() {
           About
         </p>
         <div className="flex justify-center hover:text-blue-400 duration-300">
-          <GiTurtle size="3rem" />
+          <MdOutlineSportsSoccer size="3rem" />
         </div>
       </Link>
 
