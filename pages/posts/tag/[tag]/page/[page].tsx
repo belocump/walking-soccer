@@ -91,6 +91,9 @@ const BlogTagPageList = ({
                 tags={post.tags}
                 slug={post.slug}
                 isPaginationPage={true}
+                start={post.start}
+                end={post.end}
+                location={post.location}
               />
             </div>
           ))}
