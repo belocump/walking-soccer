@@ -39,7 +39,7 @@ export default function Navigation() {
         </div>
       </Link>
 
-      <Link href="/contact">
+      <Link href="/email">
         <p className="text-1xl font-fancy1 text-gray-900 mb-4 hover:text-blue-400 duration-300">
           Contact
         </p>
