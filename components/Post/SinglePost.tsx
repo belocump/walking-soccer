@@ -29,15 +29,12 @@ const SinglePost = (props: Props) => {
   return (
     <section className=" bg-sky-900 mb-8 mx-auto rounded-md p-5 shadow-2xl hover:shadow-none hover:translate-y-1 transition-all duration-300">
       <div className="lg:flex items-center">
-        <h2 className="text-gray-100 text-2xl font-medium mb-2">
+        <h2 className="text-gray-100 mb-2">
           <Link href={`/posts/${slug}`}>
-            {date}【{start}から{end}】　{title}
+            <span className="text-2xl font-medium ">{title}</span>
+            {date}【{start}から{end}】{location}
           </Link>
         </h2>
-
-        {/* <div className="text-gray-400 mr-2">
-          {start}から{end}
-        </div> */}
       </div>
       {tags.map((tag: string, index: number) => (
         <Link href={`/posts/tag/${tag}/page/1`} key={index}>

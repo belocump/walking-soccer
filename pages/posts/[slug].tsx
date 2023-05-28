@@ -101,7 +101,7 @@ const Post = ({ post }: any) => {
         </ReactMarkdown>
 
         <h2 className="text-white bg-sky-50 rounded-xl font-medium mt-2 px-2 inline-block mr-2">
-          <Link href={`/event/${post.metadata.slug}/`}>ご予約はこちらから</Link>
+          <Link href={`/books/${post.metadata.slug}/`}>ご予約はこちらから</Link>
         </h2>
 
         <br />
