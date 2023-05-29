@@ -50,7 +50,7 @@ const Post = ({ post }: any) => {
           <h2 className="w-full text-3xl font-medium">お客様情報</h2>
 
           <div className="mt-10 font-medium markdown">
-            <p>名前　　　　　：相原　大成</p>
+            <p>名前　　　　　：山田　太郎</p>
             <p>メールアドレス：barazyuuzi2000@gmail.com</p>
             <p>電話番号　　　：08088000808</p>
             <p>備考　　　　　：</p>

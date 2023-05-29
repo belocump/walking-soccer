@@ -69,15 +69,15 @@ const Post = ({ post }: any) => {
             <div className="flex flex-col items-center">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="email"
+                htmlFor="tel"
               >
                 電話番号
               </label>
               <input
                 className="appearance-none block w-5/6 bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 mx-2 leading-tight focus:outline-none focus:bg-white"
-                type="email"
-                id="email"
-                placeholder="（例)　aaa@aa.com"
+                type="text"
+                id="tel"
+                placeholder="（例)　08012120011　*ハイフンなし半角"
                 required
                 // ref={emailRef}
               />
