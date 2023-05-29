@@ -30,6 +30,7 @@ export default function Home() {
         nameRef.current!.value = "";
         emailRef.current!.value = "";
         messageRef.current!.value = "";
+        alert("送信されました");
       });
     } else {
       console.log("送信中止");
