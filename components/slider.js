@@ -9,7 +9,8 @@ function Slider() {
     dots: true,
     infinite: true,
     speed: 700,
-    slidesToShow: 1,
+    slidesToShow: 2,
+    // slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     centerMode: true,
@@ -19,9 +20,10 @@ function Slider() {
   };
   return (
     <Slick {...settings}>
-      <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
-      <Image src="/back.png" alt="" width={1400} height={300} />
-      <Image src="/walking-soccer.png" alt="" width={1400} height={300} />
+      <Image src="/image1.png" alt="" width={1400} height={300} />
+      <Image src="/image2.png" alt="" width={1400} height={300} />
+      <Image src="/image3.png" alt="" width={1400} height={300} />
+      <Image src="/image4.png" alt="" width={1400} height={300} />
     </Slick>
   );
 }

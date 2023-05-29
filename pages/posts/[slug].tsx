@@ -48,11 +48,11 @@ const Post = ({ post }: any) => {
   // 目次ここまで
 
   return (
-    <section className="container h-auto lg:px-2 px-5 lg:w-4/5 mx-auto mt-20">
+    <section className="container h-auto lg:px-2 lg:w-full mx-auto mt-10">
       {/* 目次 */}
-      <div className="p-3 m-10 bg-gray-100 border border-black border-dashed">
-        <p className="text-center text-3xl">目次</p>
-        <ol className="p-2 list-decimal list-inside">
+      <div className="p-10 m-3 bg-gray-100 border border-black border-dashed">
+        <p className="text-red text-center text-4xl font-fancy3">目次</p>
+        <ol className="p-2 list-decimal list-inside text-2xl font-fancy3">
           <ReactMarkdown
             allowedElements={["h2"]}
             components={{
@@ -66,7 +66,7 @@ const Post = ({ post }: any) => {
       {/* 目次ここまで */}
 
       {/* 詳細 */}
-      <div className="p-3 m-10 bg-gray-100 border border-black border-dashed">
+      <div className="p-10 m-3 bg-gray-100 border border-black border-dashed">
         <h2 className="text-3xl font-medium">{post.metadata.title}</h2>
 
         <span className="text-gray-500">
@@ -81,6 +81,7 @@ const Post = ({ post }: any) => {
             <Link href={`/posts/tag/${tag}/page/1`}>{tag}</Link>
           </p>
         ))}
+
         <div className="mt-10 font-medium markdown">
           <ReactMarkdown
             components={{
@@ -121,6 +122,7 @@ const Post = ({ post }: any) => {
             ←ホームに戻る
           </div>
         </Link>
+        <br />
         <br />
       </div>
     </section>
