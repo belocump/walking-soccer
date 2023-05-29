@@ -84,7 +84,7 @@ const Home: NextPage = ({ fourPosts, allTags }: any) => {
 
             <br />
             <br />
-            <Image src="/flyer.png" alt="" width={500} height={1000} />
+            <Image src="/flyer.JPG" alt="" width={500} height={1000} />
           </div>
           {/* 会社概要が作成されたら追加する */}
           {/* <Link

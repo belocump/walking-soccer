@@ -1,10 +1,5 @@
 import Link from "next/link";
-import {
-  // SiGooglehome,
-  // SiReddit,
-  SiBookstack,
-  SiTinyletter,
-} from "react-icons/si";
+import { SiBookstack, SiTinyletter } from "react-icons/si";
 import { MdOutlineSportsSoccer } from "react-icons/md";
 import { BiHomeAlt2 } from "react-icons/bi";
 
@@ -37,7 +32,7 @@ export default function Navigation() {
           <SiBookstack size="3rem" />
         </div>
       </Link>
-
+      {/* 
       <Link href="/contact">
         <p className="text-1xl font-fancy1 text-gray-900 mb-4 hover:text-blue-400 duration-300">
           Contact
@@ -45,7 +40,7 @@ export default function Navigation() {
         <div className="flex justify-center hover:text-blue-400 duration-300">
           <SiTinyletter size="3rem" />
         </div>
-      </Link>
+      </Link> */}
     </nav>
   );
 }
