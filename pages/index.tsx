@@ -9,6 +9,14 @@ import Link from "next/link";
 import Tag from "../components/Tag/Tag";
 import Slider from "../components/slider";
 
+// 追記
+import { useEffect } from "react";
+import axios from "axios";
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { CsrfToken } from "../types/types";
+import { useAppSelector } from "../app/hooks";
+import { selectCsrfState } from "../slices/appSlice";
+
 export const getStaticProps: GetStaticProps = async () => {
   // const allPosts = await getAllPosts();
   // 空だと４つの記事　数字で指定することで記事の数が変わる
@@ -25,6 +33,20 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Home: NextPage = ({ fourPosts, allTags }: any) => {
+  const csrf = useAppSelector(selectCsrfState);
+  useEffect(() => {
+    const getCsrfToken = async () => {
+      const res = await axios.get<CsrfToken>(
+        `http://127.0.0.1:8000/api/csrftoken`
+        // `${process.env.NEXT_PUBLIC_API_URL}/csrftoken`
+      );
+      axios.defaults.headers.common["X-CSRF-Token"] = res.data.csrf_token;
+      console.log(res.data.csrf_token);
+      console.log(process.env.NEXT_PUBLIC_API_URL);
+    };
+    getCsrfToken();
+  }, [csrf]);
+
   return (
     <>
       <Head>
