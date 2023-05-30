@@ -1,10 +1,12 @@
 import { useState, FormEvent } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useQueryClient } from "react-query";
 import { useMutateAuth } from "../hooks/useMutateAuth";
 
 export const useProcessAuth = () => {
-  const history = useHistory();
+  // const history = useHistory();
+  const history = useRouter();
   const queryClient = useQueryClient();
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -38,6 +40,7 @@ export const useProcessAuth = () => {
   };
   const logout = async () => {
     await logoutMutation.mutateAsync();
+    // キャッシュのリムーブ
     queryClient.removeQueries("tasks");
     queryClient.removeQueries("user");
     queryClient.removeQueries("single");

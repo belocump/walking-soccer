@@ -1,13 +1,15 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 import { UserInfo } from "../types/types";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 
 export const useQueryUser = () => {
-  const history = useHistory();
+  const history = useRouter();
+  // const history = useHistory();
   const getCurrentUser = async () => {
     const { data } = await axios.get<UserInfo>(
-      `${process.env.REACT_APP_API_URL}/user`,
+      `${process.env.NEXT_PUBLIC_API_URL}/user`,
       {
         withCredentials: true,
       }
@@ -18,6 +20,6 @@ export const useQueryUser = () => {
     queryKey: "user",
     queryFn: getCurrentUser,
     staleTime: Infinity,
-    onError: () => history.push("/"),
+    onError: () => history.push("/about"),
   });
 };

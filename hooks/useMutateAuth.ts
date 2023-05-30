@@ -1,22 +1,24 @@
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMutation } from "react-query";
 import { useAppDispatch } from "../app/hooks";
 import { resetEditedTask, toggleCsrfState } from "../slices/appSlice";
 import { User } from "../types/types";
 
 export const useMutateAuth = () => {
-  const history = useHistory();
+  // const history = useHistory();
+  const history = useRouter();
   const dispatch = useAppDispatch();
 
   const loginMutation = useMutation(
     async (user: User) =>
-      await axios.post(`${process.env.REACT_APP_API_URL}/login`, user, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/login`, user, {
         withCredentials: true,
       }),
     {
       onSuccess: () => {
-        history.push("/todo");
+        history.push("/about");
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`);
@@ -28,7 +30,7 @@ export const useMutateAuth = () => {
   );
   const registerMutation = useMutation(
     async (user: User) =>
-      await axios.post(`${process.env.REACT_APP_API_URL}/register`, user),
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register`, user),
     {
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`);
@@ -41,7 +43,7 @@ export const useMutateAuth = () => {
   const logoutMutation = useMutation(
     async () =>
       await axios.post(
-        `${process.env.REACT_APP_API_URL}/logout`,
+        `${process.env.NEXT_PUBLIC_API_URL}/logout`,
         {},
         {
           withCredentials: true,
@@ -49,14 +51,14 @@ export const useMutateAuth = () => {
       ),
     {
       onSuccess: () => {
-        history.push("/");
+        history.push("/about");
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`);
         if (err.response.data.detail === "The CSRF token has expired.") {
           dispatch(toggleCsrfState());
           dispatch(resetEditedTask());
-          history.push("/");
+          history.push("/about");
         }
       },
     }
