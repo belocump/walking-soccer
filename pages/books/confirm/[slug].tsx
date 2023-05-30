@@ -65,7 +65,7 @@ const Post = ({ post }: any) => {
                 type="submit"
               >
                 <Link href={`/books/complete/${post.metadata.slug}/`}>
-                  規約に同意のうえ参加する
+                  規約に同意して参加する
                 </Link>
               </button>
               <br />
@@ -74,7 +74,7 @@ const Post = ({ post }: any) => {
                 type="submit"
               >
                 <Link href={`/books/info/${post.metadata.slug}/`}>
-                  入力情報を変更する
+                  入力情報を変更する　
                 </Link>
               </button>
             </div>

@@ -38,9 +38,13 @@ const Post = ({ post }: any) => {
         <div className="mt-10 font-medium markdown">
           <h3 className="w-full text-3xl font-medium">
             予約が完了しました。
+            <br />
             {post.metadata.title}を一緒に楽しみましょう!
             <br />
+            <br />
             配信されたメールを確認してください。
+            <br />
+            お待ちしております。
           </h3>
         </div>
 
