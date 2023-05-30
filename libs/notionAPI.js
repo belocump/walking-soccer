@@ -48,6 +48,9 @@ const getPageMataData = (post) => {
     start: post.properties.Start.rich_text[0].plain_text,
     end: post.properties.End.rich_text[0].plain_text,
     location: post.properties.Location.rich_text[0].plain_text,
+    // 追記 month=data["properties"]["month"]["number"],
+    max: post.properties.Max.number,
+    fee: post.properties.Fee.number,
   };
 };
 

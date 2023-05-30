@@ -94,6 +94,9 @@ const BlogTagPageList = ({
                 start={post.start}
                 end={post.end}
                 location={post.location}
+                // 追記
+                max={post.max}
+                fee={post.fee}
               />
             </div>
           ))}

@@ -61,6 +61,9 @@ const Home: NextPage = ({ fourPosts, allTags }: any) => {
                   tags={post.tags}
                   slug={post.slug}
                   isPaginationPage={false}
+                  // 追記
+                  max={post.max}
+                  fee={post.fee}
                 />
               </div>
             ))}
