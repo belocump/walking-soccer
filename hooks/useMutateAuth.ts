@@ -51,7 +51,7 @@ export const useMutateAuth = () => {
       ),
     {
       onSuccess: () => {
-        history.push("/about");
+        history.push("/");
       },
       onError: (err: any) => {
         alert(`${err.response.data.detail}\n${err.message}`);

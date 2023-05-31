@@ -3,28 +3,28 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 
-// 追記
-import { useEffect } from "react";
-import axios from "axios";
-// import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { CsrfToken } from "../types/types";
-import { useAppSelector } from "../app/hooks";
-import { selectCsrfState } from "../slices/appSlice";
+// // 追記
+// import { useEffect } from "react";
+// import axios from "axios";
+// // import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import { CsrfToken } from "../types/types";
+// import { useAppSelector } from "../app/hooks";
+// import { selectCsrfState } from "../slices/appSlice";
 
 const Home: NextPage = () => {
-  const csrf = useAppSelector(selectCsrfState);
-  useEffect(() => {
-    const getCsrfToken = async () => {
-      const res = await axios.get<CsrfToken>(
-        `http://127.0.0.1:8000/api/csrftoken`
-        // `${process.env.NEXT_PUBLIC_API_URL}/csrftoken`
-      );
-      axios.defaults.headers.common["X-CSRF-Token"] = res.data.csrf_token;
-      console.log(res.data.csrf_token);
-      console.log(process.env.NEXT_PUBLIC_API_URL);
-    };
-    getCsrfToken();
-  }, [csrf]);
+  // const csrf = useAppSelector(selectCsrfState);
+  // useEffect(() => {
+  //   const getCsrfToken = async () => {
+  //     const res = await axios.get<CsrfToken>(
+  //       `http://127.0.0.1:8000/api/csrftoken`
+  //       // `${process.env.NEXT_PUBLIC_API_URL}/csrftoken`
+  //     );
+  //     axios.defaults.headers.common["X-CSRF-Token"] = res.data.csrf_token;
+  //     console.log(res.data.csrf_token);
+  //     console.log(process.env.NEXT_PUBLIC_API_URL);
+  //   };
+  //   getCsrfToken();
+  // }, [csrf]);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">

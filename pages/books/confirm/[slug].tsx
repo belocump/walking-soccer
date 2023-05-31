@@ -43,7 +43,7 @@ const Post = ({ post }: any) => {
             {post.metadata.end}
           </p>
           <p>　場所　　：{post.metadata.location}</p>
-          <p>　参加費　：1000円</p>
+          <p>　参加費　：{post.metadata.fee}円</p>
         </div>
 
         <div className="mt-10 font-medium markdown">

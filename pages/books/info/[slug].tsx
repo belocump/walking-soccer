@@ -45,11 +45,16 @@ const Post = ({ post }: any) => {
         <hr />
 
         <div className="mt-10 font-medium markdown">
+          <h2>　でログインしています</h2>
+          <br />
           <h2 className="w-full text-3xl font-medium">イベント詳細</h2>
-          <p>イベント名：ウォーキングサッカー{post.metadata.title}</p>
-          <p>　日時　　：2023年5月29日　19時ー21時</p>
-          <p>　場所　　：いわき市フットサル場</p>
-          <p>　参加費　：1000円</p>
+          <p>イベント名：{post.metadata.title}</p>
+          <p>
+            　日時　　：{post.metadata.date}　{post.metadata.start}ー
+            {post.metadata.end}
+          </p>
+          <p>　場所　　：{post.metadata.location}</p>
+          <p>　参加費　：{post.metadata.fee} 円</p>
         </div>
 
         <div className="mt-10 font-medium markdown">

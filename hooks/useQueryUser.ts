@@ -20,6 +20,6 @@ export const useQueryUser = () => {
     queryKey: "user",
     queryFn: getCurrentUser,
     staleTime: Infinity,
-    onError: () => history.push("/about"),
+    onError: () => history.push("/"),
   });
 };
