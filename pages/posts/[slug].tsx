@@ -4,6 +4,13 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+// 追記
+import { useEffect } from "react";
+import axios from "axios";
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { CsrfToken } from "../../types/types";
+import { useAppSelector } from "../../app/hooks";
+import { selectCsrfState } from "../../slices/appSlice";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
@@ -25,6 +32,7 @@ export const getStaticProps = async ({ params }: any) => {
     revalidate: 10,
   };
 };
+
 // 目次
 const Post = ({ post }: any) => {
   const H2 = ({ node, ...props }: any) => {
@@ -45,7 +53,21 @@ const Post = ({ post }: any) => {
       </a>
     );
   };
-  // 目次ここまで
+  // CSRFトークン
+  const csrf = useAppSelector(selectCsrfState);
+
+  useEffect(() => {
+    const getCsrfToken = async () => {
+      const res = await axios.get<CsrfToken>(
+        `http://127.0.0.1:8000/api/csrftoken`
+        // `${process.env.NEXT_PUBLIC_API_URL}/csrftoken`
+      );
+      axios.defaults.headers.common["X-CSRF-Token"] = res.data.csrf_token;
+      console.log(res.data.csrf_token);
+      console.log(process.env.NEXT_PUBLIC_API_URL);
+    };
+    getCsrfToken();
+  }, [csrf]);
 
   return (
     <section className="container h-auto lg:px-2 lg:w-full mx-auto mt-10">

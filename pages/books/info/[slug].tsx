@@ -1,9 +1,11 @@
 import React from "react";
 import { getAllPosts, getSinglePost } from "../../../libs/notionAPI";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+// import ReactMarkdown from "react-markdown";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { SlLogout } from "react-icons/sl";
+import { useProcessAuth } from "../../../hooks/useProcessAuth";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
@@ -25,10 +27,17 @@ export const getStaticProps = async ({ params }: any) => {
     revalidate: 10,
   };
 };
-// 目次
+
 const Post = ({ post }: any) => {
+  const { logout } = useProcessAuth();
+
   return (
     <section className="container h-full w-full mx-auto md:w-1/2">
+      <SlLogout
+        onClick={logout}
+        className="h-7 w-7 mt-1 mb-5 text-blue-500 cursor-pointer"
+      />
+
       <div className="bg-yellow-50 p-5">
         <h2 className="w-full text-3xl font-medium text-center font-mono">
           予約内容
@@ -37,7 +46,7 @@ const Post = ({ post }: any) => {
 
         <div className="mt-10 font-medium markdown">
           <h2 className="w-full text-3xl font-medium">イベント詳細</h2>
-          <p>イベント名：ウォーキングサッカー</p>
+          <p>イベント名：ウォーキングサッカー{post.metadata.title}</p>
           <p>　日時　　：2023年5月29日　19時ー21時</p>
           <p>　場所　　：いわき市フットサル場</p>
           <p>　参加費　：1000円</p>
