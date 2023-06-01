@@ -7,26 +7,77 @@ const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Plofile</title>
+        <title>ウォーキングサッカーについて</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex flex-col items-center justify-center bg-gray-80">
-        <h1 className="font-fancy1">はじめまして、Belocumpです</h1>
-        <br />
-        <p className="font-fancy1">
-          小学校の教員として、１０年以上働いていました。
-        </p>
-        <p className="font-fancy2">
-          プログラミングに興味があります。最近はPythonやフロントエンドの技術の勉強をしています。
-        </p>
-        <p className="font-fancy3">サッカーを心から愛しています。</p>
-        <br />
-        <p>どうぞ。よろしくお願いします。</p>
-        <Image src="/kanban.png" alt="" width={400} height={200} />
+      <section className="container flex min-h-screen content-between justify-between mt-10 mx-auto md:flex-row">
+        <div className="bg-gray-100 flex container p-10 flex-col items-center py-2 mx-auto">
+          <div>
+            <h1 className="font-fancy2 text-4xl font-medium text-center my-5">
+              ウォーキングサッカーとは
+            </h1>
 
-        <Image src="/about-page.png" alt="" width={400} height={200} />
-      </div>
+            <div className="flex flex-col items-center bg-gray-200 p-5 mb-5">
+              <p className="m-5">
+                ウォーキングサッカーとは歩いて行うサッカーのことで、「走らない」「ぶつからない」ので誰でも安心して取り組めるスポーツです。55歳以上の高齢者の健康のためのサッカーが原点と言われています。
+              </p>
+              <p className="m-5">
+                サッカーやフットサルだと、ある程度のレベルがないと女性や年齢差のある人が若い人の中に入って楽しむことが難しかったりします。しかしウォーキングサッカーなら、誰もが主役になりみんなで一緒になってサッカーを楽しめるのです！
+              </p>
+              <p className="m-5">
+                そんな「魔法のスポーツ」が、このウォーキングサッカーです。
+              </p>
+            </div>
+
+            <br />
+            <Image src="/about2.png" alt="" width={500} height={1000} />
+
+            <br />
+          </div>
+        </div>
+
+        <div className="bg-gray-100 flex container p-10 flex-col items-center py-2 mx-auto">
+          <h1 className="font-fancy2 text-4xl font-medium text-center my-5">
+            ルール
+          </h1>
+          <div className=" bg-gray-200 p-5 mb-5">
+            <h2 className="text-center">通常ルール</h2>
+            <br />
+            <ol>
+              <li>1. コート内では、全員歩いてプレー。（早歩きはＯＫ。）</li>
+              <li>2. 相手にぶつからない、さわらない</li>
+              <li>3. アウトボールは、キックイン</li>
+              <li>4. 1.8ｍ以上の高さに蹴り上げた場合は反則</li>
+              <li>5. コートサイズ、ゴールサイズはフットサルコートと同じ。</li>
+              <li>6. 試合使用球はフットサルボール</li>
+              <li>7. スライディング禁止</li>
+            </ol>
+            <br />
+            <h2 className="text-center">特別ルール</h2>
+            <br />
+            <ol>
+              <li>1. コート内では、全員歩いてプレー。（早歩きはＯＫ。）</li>
+              <li>2. 相手にぶつからない、さわらない</li>
+              <li>3. アウトボールは、キックイン</li>
+            </ol>
+          </div>
+
+          <Image src="/about1.png" alt="" width={500} height={1000} />
+
+          <div className=" bg-purple-300 rounded-3xl p-10 mt-10">
+            <h1 className="font-fancy2 text-4xl font-medium mb-10">
+              ウォーキングフットボールを一緒に、始めてみませんか？
+            </h1>
+            <hr />
+            <hr />
+            {/* <Logo /> */}
+            <p>
+              わたしたち、合同会社・BELOCUMPは、ウォーキングサッカーをきっかけに誰もが垣根を越えて、気軽にスポーツを続けることが、スポーツ文化の発展・健康増進や様々な社会課題の解決につながるような取り組みが広がっていくことを願います。
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
