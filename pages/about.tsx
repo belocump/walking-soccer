@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       <section className="container flex flex-col min-h-screen content-between justify-between mt-10 mx-auto md:flex-row">
         <div className="bg-gray-100 flex container p-10 flex-col items-center py-2">
           <div>
-            <h1 className="font-fancy2 text-4xl font-medium text-center my-5">
+            <h1 className="font-fancy2 text-3xl font-medium text-center my-5">
               ウォーキングサッカー
             </h1>
 
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className="bg-gray-100 flex container p-10 flex-col items-center py-2">
-          <h1 className="font-fancy2 text-4xl font-medium text-center my-5">
+          <h1 className="font-fancy2 text-3xl font-medium text-center my-5">
             ルール
           </h1>
           <div className=" bg-gray-200 p-5 mb-5">
@@ -65,8 +65,8 @@ const Home: NextPage = () => {
 
           <Image src="/about1.png" alt="" width={500} height={1000} />
 
-          <div className=" bg-purple-300 rounded-3xl p-10 mt-10">
-            <h1 className="font-fancy2 text-4xl font-medium mb-10">
+          <div className=" bg-purple-300 rounded-3xl p-5 mt-10">
+            <h1 className="font-fancy2 text-3xl font-medium mb-10">
               ウォーキングサッカーを一緒に、始めてみませんか？
             </h1>
             <hr />
