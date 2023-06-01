@@ -11,11 +11,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="container flex min-h-screen content-between justify-between mt-10 mx-auto md:flex-row">
-        <div className="bg-gray-100 flex container p-10 flex-col items-center py-2 mx-auto">
+      <section className="container flex flex-col min-h-screen content-between justify-between mt-10 mx-auto md:flex-row">
+        <div className="bg-gray-100 flex container p-10 flex-col items-center py-2">
           <div>
             <h1 className="font-fancy2 text-4xl font-medium text-center my-5">
-              ウォーキングサッカーとは
+              ウォーキングサッカー
             </h1>
 
             <div className="flex flex-col items-center bg-gray-200 p-5 mb-5">
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           </div>
         </div>
 
-        <div className="bg-gray-100 flex container p-10 flex-col items-center py-2 mx-auto">
+        <div className="bg-gray-100 flex container p-10 flex-col items-center py-2">
           <h1 className="font-fancy2 text-4xl font-medium text-center my-5">
             ルール
           </h1>
