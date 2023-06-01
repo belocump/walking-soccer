@@ -67,7 +67,7 @@ const Home: NextPage = () => {
 
           <div className=" bg-purple-300 rounded-3xl p-10 mt-10">
             <h1 className="font-fancy2 text-4xl font-medium mb-10">
-              ウォーキングフットボールを一緒に、始めてみませんか？
+              ウォーキングサッカーを一緒に、始めてみませんか？
             </h1>
             <hr />
             <hr />
