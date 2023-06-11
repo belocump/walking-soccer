@@ -12,13 +12,13 @@ const Home: NextPage = () => {
       </Head>
 
       <section className="container flex flex-col min-h-screen content-between justify-between mt-10 mx-auto md:flex-row">
-        <div className="bg-gray-100 flex container p-5 flex-col items-center py-2">
-          <div>
+        <div className="bg-gray-100 flex container p-5 flex-col items-center py-2 ">
+          <div className="">
             <h1 className="font-fancy2 text-3xl font-medium text-center my-5">
               ウォーキングサッカー
             </h1>
 
-            <div className="flex flex-col items-center bg-gray-200 p-5 mb-5">
+            <div className="flex flex-col items-center bg-gray-200 p-5 mb-5 rounded-3xl ">
               <p className="m-5">
                 ウォーキングサッカーとは歩いて行うサッカーのことで、「走らない」「ぶつからない」ので誰でも安心して取り組めるスポーツです。55歳以上の高齢者の健康のためのサッカーが原点と言われています。
               </p>
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
           <h1 className="font-fancy2 text-3xl font-medium text-center my-5">
             ルール
           </h1>
-          <div className=" bg-gray-200 p-5 mb-5">
+          <div className=" bg-gray-200 p-5 mb-5 rounded-3xl">
             <h2 className="text-center">通常ルール</h2>
             <br />
             <ol>
@@ -66,7 +66,7 @@ const Home: NextPage = () => {
             </ol>
           </div>
 
-          <Image src="/about1.png" alt="" width={500} height={1000} />
+          <Image src="/image4.png" alt="" width={500} height={1000} />
 
           <div className=" bg-purple-300 rounded-3xl p-5 mt-10">
             <h1 className="font-fancy2 text-3xl font-medium mb-10">
