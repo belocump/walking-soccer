@@ -26,7 +26,7 @@ export const getStaticProps = async ({ params }: any) => {
 // 目次
 const Post = ({ post, liff, liffError, profile }: any) => {
   const router = useRouter();
-  const { name, tel } = router.query;
+  const { name, tel, message } = router.query;
 
   const [displayName, setDisplayName] = useState("");
   const [userId, setUserId] = useState("");
@@ -44,6 +44,14 @@ const Post = ({ post, liff, liffError, profile }: any) => {
         });
     }
   }, [profile]);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    router.push({
+      pathname: `/books/complete/${post.metadata.slug}/`,
+      query: router.query,
+    });
+  };
 
   return (
     <section className="container h-full w-full mx-auto md:w-1/2">
@@ -63,7 +71,7 @@ const Post = ({ post, liff, liffError, profile }: any) => {
             {post.metadata.end}
           </p>
           <p>　場所　　：{post.metadata.location}</p>
-          <p>　参加費　：1000円</p>
+          <p>　参加費　：{post.metadata.fee}円</p>
         </div>
 
         <div className="mt-10 font-medium markdown">
@@ -73,20 +81,21 @@ const Post = ({ post, liff, liffError, profile }: any) => {
             <p>名前　　　　　：{name}</p>
             {/* <p>メールアドレス：barazyuuzi2000@gmail.com</p> */}
             <p>電話番号　　　：{tel}</p>
-            <p>備考　　　　　：</p>
+            <p>備考　　　　　：{message}</p>
           </div>
           <form
-          // onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+            // onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+            onSubmit={handleSubmit}
           >
             <hr />
             <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
               <button
                 className="bg-blue-500 hover:bg-pink-200 text-white font-bold py-2 px-4 rounded"
-                type="submit"
+                // type="submit"
               >
-                <Link href={`/books/complete/${post.metadata.slug}/`}>
-                  規約に同意のうえ参加する
-                </Link>
+                {/* <Link href={`/books/complete/${post.metadata.slug}/`}> */}
+                規約に同意のうえ参加する
+                {/* </Link> */}
               </button>
               <br />
               <button

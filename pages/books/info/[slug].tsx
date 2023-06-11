@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getAllPosts, getSinglePost } from "../../../libs/notionAPI";
-import Link from "next/link";
+// import Link from "next/link";
 import { useRouter } from "next/router";
 
 export const getStaticPaths = async () => {
@@ -67,10 +67,13 @@ const Post = ({ post, liff, liffError, profile }: any) => {
 
         <div className="mt-10 font-medium markdown">
           <h2 className="w-full text-3xl font-medium">イベント詳細</h2>
-          <p>イベント名：ウォーキングサッカー</p>
-          <p>　日時　　：2023年5月29日　19時ー21時</p>
-          <p>　場所　　：いわき市フットサル場</p>
-          <p>　参加費　：1000円</p>
+          <p>イベント名：{post.metadata.title}</p>
+          <p>
+            　日時　　：{post.metadata.date}　{post.metadata.start}ー
+            {post.metadata.end}
+          </p>
+          <p>　場所　　：{post.metadata.location}</p>
+          <p>　参加費　：{post.metadata.fee}円</p>
         </div>
 
         <div className="mt-10 font-medium markdown">
@@ -126,8 +129,9 @@ const Post = ({ post, liff, liffError, profile }: any) => {
               </label>
               <textarea
                 className="block mx-2 p-2.5 w-5/6 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                id="message"
+                name="message"
                 placeholder="ご予約について特記事項があればお書きください。"
+                onChange={handleChange}
                 // required
                 // ref={messageRef}
                 rows={8}
