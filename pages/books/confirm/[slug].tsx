@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getAllPosts, getSinglePost } from "../../../libs/notionAPI";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { useRouter } from "next/router";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
@@ -26,13 +24,35 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 // 目次
-const Post = ({ post }: any) => {
+const Post = ({ post, liff, liffError, profile }: any) => {
+  const router = useRouter();
+  const { name, tel } = router.query;
+
+  const [displayName, setDisplayName] = useState("");
+  const [userId, setUserId] = useState("");
+  // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
+
+  useEffect(() => {
+    if (profile) {
+      profile
+        .then((result: any) => {
+          setDisplayName(result.displayName);
+          setUserId(result.userId);
+        })
+        .catch((error: any) => {
+          console.log("Error retrieving profile:", error);
+        });
+    }
+  }, [profile]);
+
   return (
     <section className="container h-full w-full mx-auto md:w-1/2">
       <div className="bg-yellow-50 p-5">
         <h1 className="w-full text-3xl font-medium text-center font-mono">
           予約内容
         </h1>
+        <h1 className="text-center text-3xl">{displayName}さん、こんにちは</h1>
+        <hr />
         <hr />
 
         <div className="mt-10 font-medium markdown">
@@ -50,9 +70,9 @@ const Post = ({ post }: any) => {
           <h2 className="w-full text-3xl font-medium">お客様情報</h2>
 
           <div className="mt-10 font-medium markdown">
-            <p>名前　　　　　：山田　太郎</p>
-            <p>メールアドレス：barazyuuzi2000@gmail.com</p>
-            <p>電話番号　　　：08088000808</p>
+            <p>名前　　　　　：{name}</p>
+            {/* <p>メールアドレス：barazyuuzi2000@gmail.com</p> */}
+            <p>電話番号　　　：{tel}</p>
             <p>備考　　　　　：</p>
           </div>
           <form
