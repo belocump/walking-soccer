@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { useState, useEffect } from "react";
-import { LiffMockPlugin } from "@line/liff-mock";
+// import { LiffMockPlugin } from "@line/liff-mock";
 import Layout from "../components/layout";
 
 function MyApp({ Component, pageProps }) {
@@ -12,10 +12,10 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     // to avoid `window is not defined` error
     import("@line/liff").then((liff) => {
-      liff.use(new LiffMockPlugin());
+      // liff.use(new LiffMockPlugin());
       console.log("LIFF init...");
       liff
-        .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID, mock: true })
+        .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID, mock: false })
         .then(() => {
           console.log("LIFF init succeeded.");
           if (!liff.isInClient()) liff.login();
