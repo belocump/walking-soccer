@@ -12,10 +12,10 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     // to avoid `window is not defined` error
     import("@line/liff").then((liff) => {
-      // liff.use(new LiffMockPlugin());
+      liff.use(new LiffMockPlugin());
       console.log("LIFF init...");
       liff
-        .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID, mock: false })
+        .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID, mock: true })
         .then(() => {
           console.log("LIFF init succeeded.");
           if (!liff.isInClient()) liff.login();
