@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { useState, useEffect } from "react";
+import { LiffMockPlugin } from "@line/liff-mock";
 import Layout from "../components/layout";
 // import { LiffMockPlugin } from "@line/liff-mock";
 
