@@ -24,12 +24,48 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 // 目次
-const Post = ({ post, liff, liffError, profile }: any) => {
+const Post = ({ post, liff, liffError }: any) => {
   const [displayName, setDisplayName] = useState("");
   const [userId, setUserId] = useState("");
-  // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
+  // const [token, setToken] = useState("Token////");
+
+  // からのJSONデータ
   const [formData, setFormData] = useState({});
   const router = useRouter();
+
+  // if (liff) {
+  //   // 開発用。（重要）実際の運用の際はコメント。モックのためにログイン。liffアプリはログインした状態になっているため。
+  //   liff.login();
+  //   // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
+
+  //   liff.getProfile().then((profile: any) => {
+  //     // プロフィール名
+  //     setDisplayName(profile.displayName);
+  //     // lineの返信用に
+  //     setUserId(profile.userId);
+
+  //     // const idToken = liff.getIDToken();
+  //     // setToken(idToken);
+  //   });
+  // }
+
+  useEffect(() => {
+    if (liff) {
+      // 開発用。（重要）実際の運用の際はコメント。モックのためにログイン。liffアプリはログインした状態になっているため。
+      // liff.login();
+      // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
+
+      liff.getProfile().then((profile: any) => {
+        // プロフィール名
+        setDisplayName(profile.displayName);
+        // lineの返信用に
+        setUserId(profile.userId);
+
+        // const idToken = liff.getIDToken();
+        // setToken(idToken);
+      });
+    }
+  }, [liff]);
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -42,19 +78,6 @@ const Post = ({ post, liff, liffError, profile }: any) => {
       query: formData,
     });
   };
-
-  useEffect(() => {
-    if (profile) {
-      profile
-        .then((result: any) => {
-          setDisplayName(result.displayName);
-          setUserId(result.userId);
-        })
-        .catch((error: any) => {
-          console.log("Error retrieving profile:", error);
-        });
-    }
-  }, [profile]);
 
   return (
     <section className="container h-full w-full mx-auto md:w-1/2">
@@ -94,6 +117,7 @@ const Post = ({ post, liff, liffError, profile }: any) => {
                 className="appearance-none block w-5/6 bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 mx-2 leading-tight focus:outline-none focus:bg-white"
                 type="text"
                 name="name"
+                id="name"
                 onChange={handleChange}
                 placeholder="（例)　山田　太郎"
                 // value={displayName}
@@ -113,8 +137,10 @@ const Post = ({ post, liff, liffError, profile }: any) => {
                 className="appearance-none block w-5/6 bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 mx-2 leading-tight focus:outline-none focus:bg-white"
                 type="text"
                 name="tel"
+                id="tel"
                 placeholder="（例)　08012120011　*ハイフンなし半角"
                 onChange={handleChange}
+                // value={userId.slice(0, 5)}
                 required
                 // ref={emailRef}
               />
@@ -130,6 +156,7 @@ const Post = ({ post, liff, liffError, profile }: any) => {
               <textarea
                 className="block mx-2 p-2.5 w-5/6 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                 name="message"
+                id="message"
                 placeholder="ご予約について特記事項があればお書きください。"
                 onChange={handleChange}
                 // required

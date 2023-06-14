@@ -1,27 +1,22 @@
 import "../styles/globals.css";
 import { useState, useEffect } from "react";
-import { LiffMockPlugin } from "@line/liff-mock";
 import Layout from "../components/layout";
+// import { LiffMockPlugin } from "@line/liff-mock";
 
 function MyApp({ Component, pageProps }) {
   const [liffObject, setLiffObject] = useState(null);
   const [liffError, setLiffError] = useState(null);
-  const [profile, setProfile] = useState(null);
 
   // Execute liff.init() when the app is initialized
   useEffect(() => {
     // to avoid `window is not defined` error
     import("@line/liff").then((liff) => {
-      liff.use(new LiffMockPlugin());
+      // liff.use(new LiffMockPlugin());
       console.log("LIFF init...");
       liff
-        .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID, mock: true })
+        .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID, mock: false })
         .then(() => {
           console.log("LIFF init succeeded.");
-          if (!liff.isInClient()) liff.login();
-          setProfile(liff.getProfile());
-          // console.log(liff.getContext());
-          // console.log(liff.getAccessToken());
           // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
           setLiffObject(liff);
         })
@@ -34,7 +29,7 @@ function MyApp({ Component, pageProps }) {
 
   pageProps.liff = liffObject;
   pageProps.liffError = liffError;
-  pageProps.profile = profile;
+  // pageProps.profile = profile;
 
   return (
     <Layout>

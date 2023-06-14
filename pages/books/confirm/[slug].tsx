@@ -24,26 +24,43 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 // 目次
-const Post = ({ post, liff, liffError, profile }: any) => {
+const Post = ({ post, liff, liffError }: any) => {
+  const [displayName, setDisplayName] = useState("");
+  const [userId, setUserId] = useState("");
+  // const [token, setToken] = useState("Token////");
+
+  // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
   const router = useRouter();
   const { name, tel, message } = router.query;
 
-  const [displayName, setDisplayName] = useState("");
-  const [userId, setUserId] = useState("");
-  // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
+  if (liff) {
+    // 開発用。（重要）実際の運用の際はコメント。モックのためにログイン。liffアプリはログインした状態になっているため。
+    // liff.login();
+    // { displayName: 'Brown', userId: '123456789', statusMessage: 'hello' }
 
-  useEffect(() => {
-    if (profile) {
-      profile
-        .then((result: any) => {
-          setDisplayName(result.displayName);
-          setUserId(result.userId);
-        })
-        .catch((error: any) => {
-          console.log("Error retrieving profile:", error);
-        });
-    }
-  }, [profile]);
+    liff.getProfile().then((profile: any) => {
+      // プロフィール名
+      setDisplayName(profile.displayName);
+      // lineの返信用に
+      setUserId(profile.userId);
+
+      // const idToken = liff.getIDToken();
+      // setToken(idToken);
+    });
+  }
+
+  // useEffect(() => {
+  //   if (profile) {
+  //     profile
+  //       .then((result: any) => {
+  //         setDisplayName(result.displayName);
+  //         setUserId(result.userId);
+  //       })
+  //       .catch((error: any) => {
+  //         console.log("Error retrieving profile:", error);
+  //       });
+  //   }
+  // }, [profile]);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
