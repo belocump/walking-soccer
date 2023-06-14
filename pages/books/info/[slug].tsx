@@ -120,7 +120,7 @@ const Post = ({ post, liff, liffError }: any) => {
                 id="name"
                 onChange={handleChange}
                 placeholder="（例)　山田　太郎"
-                value={displayName}
+                // value={displayName}
                 required
                 // ref={nameRef}
               />
